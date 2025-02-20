@@ -1,11 +1,10 @@
-const express = require("express");
-const prestamoController = require("../controller/prestamoController");
-
+const express = require('express');
 const router = express.Router();
+const prestamoController = require('../Controller/prestamoscontroller');
 
-router.get("/", prestamoController.obtenerPrestamos);       // Obtener todos los préstamos
-router.post("/", prestamoController.realizarPrestamo);      // Registrar un préstamo
-router.put("/:id", prestamoController.devolverLibro);       // Devolver un libro
-router.get("/activos", prestamoController.prestamosActivos); // Obtener préstamos activos
+router.get('/prestamos', prestamoController.obtenerPrestamos);
+router.post('/prestamos', prestamoController.realizarPrestamo);
+router.put('/prestamos/:id/devolver', prestamoController.devolverLibro);
+router.get('/prestamos/activos', prestamoController.prestamosActivos);
 
 module.exports = router;
